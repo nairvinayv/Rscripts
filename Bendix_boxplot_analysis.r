@@ -1,6 +1,6 @@
 #Code for analysing data from Bendix Plugin of VMD
 #List of Files
-inp_list = c("S6_A","S6_B","S6_C","S6_D")
+inp_list = c("S6A","S6B","S6C","S6D")
 data=list()
 
 #Reading in the files and storing the data in a list of lists
@@ -16,11 +16,11 @@ setEPS()
 postscript("S6_curvature.eps")
 for(i in 1:4)
 {
-	boxplot(data[[i]],col=i+1,ylim=c(0,100),xlab="Residue Number",ylab="Curvature",main="Helicity of S6 Helix",xaxt = 'n')
+	boxplot(data[[i]],col=i+1,ylim=c(0,25),xlab="Residue Number",ylab="Curvature",main="Helicity of S6 Helix",xaxt = 'n',outline=FALSE)
 	par(new=TRUE)
 }
 text(x =  seq_along(residues), y = par("usr")[3] - 1, srt = 90, adj = 1, labels = residues, xpd = TRUE)
-legend(32.5, 101, c("A Chain","B Chain","C Chain","D Chain"),col=c(2,3,4,5),lty=c(1,1),lwd=c(2.5,2.5))
+legend(25, 25, c("A Chain","B Chain","C Chain","D Chain"),col=c(2,3,4,5),lty=c(1,1),lwd=c(2.5,2.5))
 dev.off()
 
 #Individual Heatmaps of each chain 
